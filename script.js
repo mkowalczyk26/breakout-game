@@ -9,13 +9,42 @@ gameArea.addEventListener('click', () => {
     console.log('123')
 })
 
+class Block {
+    constructor(x, y) {
+        this.topLeft = [x, y + blockHeight];
+        this.topRight = [x + blockWidth, y + blockHeight];
+        this.bottomLeft = [x, y];
+        this.bottomRight = [x + blockWidth, y];
+    }
+}
+
+const blocks = [
+    new Block(10, 350),
+    new Block(120, 350),
+    new Block(230, 350),
+    new Block(340, 350),
+    new Block(450, 350),
+    new Block(10, 320),
+    new Block(120, 320),
+    new Block(230, 320),
+    new Block(340, 320),
+    new Block(450, 320),
+    new Block(10, 290),
+    new Block(120, 290),
+    new Block(230, 290),
+    new Block(340, 290),
+    new Block(450, 290),
+]
+console.log(blocks[0]);
 
 function createBlocks () {
-    const block = document.createElement('div');
-    block.className = 'block';
-    block.style.left = '100px';
-    block.style.top = '50px';
-    gameArea.appendChild(block);
+    for (let i = 0; i < blocks.length; i += 1) {
+        const block = document.createElement('div');
+        block.className = 'block';
+        block.style.left = blocks[i].bottomLeft[0] + 'px';
+        block.style.bottom = blocks[i].bottomLeft[1] + 'px';
+        gameArea.appendChild(block);
+    }
 }
 
 
