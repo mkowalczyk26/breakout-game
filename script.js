@@ -78,3 +78,8 @@ function movePlatrom(e) {
     }
 }
 document.addEventListener('keydown', movePlatrom);
+
+const ball = document.createElement('div');
+ball.className = 'ball';
+gameArea.appendChild(ball);
+
