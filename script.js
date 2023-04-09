@@ -78,7 +78,10 @@ function movePlatrom(e) {
             break;
     }
 }
+
+
 document.addEventListener('keydown', movePlatrom);
+
 
 function updateBall() {
     ball.style.left = currentBallPosition[0] + 'px';
@@ -86,9 +89,19 @@ function updateBall() {
 }
 
 
-
 const ball = document.createElement('div');
 ball.className = 'ball';
 updateBall();
 gameArea.appendChild(ball);
+
+function moveBall() {
+    currentBallPosition[0] += 2;
+    currentBallPosition[1] += 2;
+    updateBall();
+}
+
+setInterval(moveBall, 20);
+
+
+
 
