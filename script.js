@@ -8,6 +8,11 @@ let currentPosition = userStartPosition;
 const ballStartPosition = [270, 60];
 let currentBallPosition = ballStartPosition;
 
+let timer;
+let ballX = 2;
+let ballY = 2;
+
+
 gameArea.addEventListener('click', () => {
     console.log('123')
 })
@@ -95,13 +100,32 @@ updateBall();
 gameArea.appendChild(ball);
 
 function moveBall() {
-    currentBallPosition[0] += 2;
-    currentBallPosition[1] += 2;
+    checkBallCollisions();
+    currentBallPosition[0] += ballX;
+    currentBallPosition[1] += ballY;
     updateBall();
 }
 
-setInterval(moveBall, 20);
+timer = setInterval(moveBall, 20);
+
+function checkBallCollisions() {
+    if (currentBallPosition[0] >= 560 - 20) {
+        ballX = -2;
+    }
+
+    if (currentBallPosition[1] >= 400 - 20) {
+        ballY = -2;
+    }
+
+    if (currentBallPosition[0] == 0) {
+        ballX = 2;
+    }
+
+    if (currentBallPosition[1] == 0) {
+        ballY = 2;
+    }
 
 
+}
 
 
