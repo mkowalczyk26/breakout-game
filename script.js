@@ -5,7 +5,8 @@ const blockHeight = 20;
 const userStartPosition = [230, 20];
 let currentPosition = userStartPosition;
 
-
+const ballStartPosition = [270, 60];
+let currentBallPosition = ballStartPosition;
 
 gameArea.addEventListener('click', () => {
     console.log('123')
@@ -79,7 +80,15 @@ function movePlatrom(e) {
 }
 document.addEventListener('keydown', movePlatrom);
 
+function updateBall() {
+    ball.style.left = currentBallPosition[0] + 'px';
+    ball.style.bottom = currentBallPosition[1] + 'px';
+}
+
+
+
 const ball = document.createElement('div');
 ball.className = 'ball';
+updateBall();
 gameArea.appendChild(ball);
 
