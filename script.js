@@ -2,6 +2,8 @@ const gameArea = document.querySelector('.main');
 const blockWidth = 100;
 const blockHeight = 20;
 
+const userStartPosition = [230, 20];
+let currentPosition = userStartPosition;
 
 
 
@@ -47,7 +49,11 @@ function createBlocks () {
     }
 }
 
-
 createBlocks();
 
-
+const platform = document.createElement('div');
+platform.className = 'block';
+platform.style.backgroundColor = 'blue';
+platform.style.left = currentPosition[0] + 'px';
+platform.style.bottom = currentPosition[1] + 'px';
+gameArea.appendChild(platform);
