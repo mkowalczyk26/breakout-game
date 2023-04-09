@@ -39,7 +39,7 @@ const blocks = [
 ]
 console.log(blocks[0]);
 
-function createBlocks () {
+function createBlocks() {
     for (let i = 0; i < blocks.length; i += 1) {
         const block = document.createElement('div');
         block.className = 'block';
@@ -54,6 +54,27 @@ createBlocks();
 const platform = document.createElement('div');
 platform.className = 'block';
 platform.style.backgroundColor = 'blue';
-platform.style.left = currentPosition[0] + 'px';
-platform.style.bottom = currentPosition[1] + 'px';
+updateUser();
 gameArea.appendChild(platform);
+
+function updateUser() {
+    platform.style.left = currentPosition[0] + 'px';
+    platform.style.bottom = currentPosition[1] + 'px';
+}
+
+
+function movePlatrom(e) {
+    switch(e.key) {
+        case 'ArrowLeft':
+            if (currentPosition[0] > 0)
+            currentPosition[0] -= 10;
+            updateUser();
+            break;
+        case 'ArrowRight':
+            if (currentPosition[0] < 560 - blockWidth)
+            currentPosition[0] += 10;
+            updateUser();
+            break;
+    }
+}
+document.addEventListener('keydown', movePlatrom);
