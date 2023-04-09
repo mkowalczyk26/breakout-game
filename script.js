@@ -109,10 +109,15 @@ function moveBall() {
 timer = setInterval(moveBall, 20);
 
 function checkBallCollisions() {
-    if (currentBallPosition[0] >= 560 - 20) {
-        ballX = -2;
+    if (
+        currentBallPosition[0] >= 560 - 20 ||
+        currentBallPosition[1] >= 400 - 20 ||
+        currentBallPosition[0] == 0
+        ) {
+            changeBallDirection();
+        //ballX = -2;
     }
-
+    /*
     if (currentBallPosition[1] >= 400 - 20) {
         ballY = -2;
     }
@@ -120,12 +125,42 @@ function checkBallCollisions() {
     if (currentBallPosition[0] == 0) {
         ballX = 2;
     }
-
+*/
     if (currentBallPosition[1] == 0) {
+        clearInterval(timer);
+    }
+
+    for (let i = 0; i < blocks.length; i += 1) {
+        if (
+            currentBallPosition[0] >= blocks[i].bottomLeft[0] + 20 &&
+            currentBallPosition[0] <= blocks[i].bottomRight[0] + 20 &&
+            currentBallPosition[1] >= blocks[i].bottomLeft[1] + 20 && 
+            currentBallPosition[1] <= blocks[i].topLeft[1] + 20
+        ) {
+            //changeBallDirection()
+        }
+    }
+}
+
+function changeBallDirection() {
+    if (ballX == 2 && ballY == 2) {
+        ballX = -2
+        return
+    }
+    if (ballX == -2 && ballY == 2) {
+        ballY = -2
+        return
+    } 
+    if (ballX == -2 && ballY == -2) {
         ballY = 2;
+        return
+    }
+    if (ballX == 2 && ballY == -2) {
+        ballX = -2
+        return
     }
 
 
-}
 
+}
 
