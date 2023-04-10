@@ -137,7 +137,12 @@ function checkBallCollisions() {
             blocks.splice(i,1)
             changeBallDirection()
         }
+        
     }
+    if (blocks.length == 0) {
+        clearInterval(timer);
+    }
+
 }
 
 function changeBallDirection() {
