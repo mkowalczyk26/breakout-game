@@ -115,6 +115,7 @@ function checkBallCollisions() {
         currentBallPosition[0] == 0
         ) {
             wallCollision();
+            userCollision();
             //changeBallDirection();
         //ballX = -2;
     }
@@ -127,9 +128,9 @@ function checkBallCollisions() {
         ballX = 2;
     }
 */
-    if (currentBallPosition[1] == 0) {
+    if (currentBallPosition[1] <= 0) {
         //clearInterval(timer);
-        //wallCollision()
+        wallCollision()
     }
 
     for (let i = 0; i < blocks.length; i += 1) {
@@ -194,6 +195,17 @@ function wallCollision() {
     }
     if (ballX == 2 && ballY == -2) {
         ballX = -2
+        return
+    }
+}
+
+function userCollision() {
+    if(ballX == 2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100) && currentBallPosition[1] <= currentPosition[1] + 20){
+        ballY = 2
+        return
+    }
+    if(ballX == -2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100)){
+        ballY = 2
         return
     }
 }
