@@ -115,7 +115,7 @@ function checkBallCollisions() {
         currentBallPosition[0] == 0
         ) {
             wallCollision();
-            userCollision();
+            //userCollision();
             //changeBallDirection();
         //ballX = -2;
     }
@@ -194,17 +194,31 @@ function wallCollision() {
         return
     }
     if (ballX == 2 && ballY == -2) {
-        ballX = -2
-        return
-    }
-}
-
-function userCollision() {
-    if(ballX == 2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100) && currentBallPosition[1] <= currentPosition[1] + 20){
         ballY = 2
         return
     }
-    if(ballX == -2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100)){
+
+    if(ballX == 2 && ballY == -2 && currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= (currentPosition[0] + 100)){
+        ballY = 2
+        console.log('1')
+        return
+
+    }
+    if(ballX == -2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= (currentPosition[0] + 100) && currentBallPosition[1] <= (currentPosition[1] + 20))){
+        ballY = 2
+        console.log('2')
+        return
+    }
+
+}
+
+function userCollision() {
+    console.log('123');
+    if(ballX == 2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100 && currentBallPosition[1] <= currentPosition[1] + 20)){
+        ballY = 2
+        return
+    }
+    if(ballX == -2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100 && currentBallPosition[1] <= currentPosition[1] + 20)){
         ballY = 2
         return
     }
