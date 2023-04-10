@@ -132,19 +132,22 @@ function checkBallCollisions() {
 
     for (let i = 0; i < blocks.length; i += 1) {
         if (
-            currentBallPosition[0] >= blocks[i].bottomLeft[0] + 20 &&
+            currentBallPosition[0] >= blocks[i].bottomLeft[0] - 20 &&
             currentBallPosition[0] <= blocks[i].bottomRight[0] + 20 &&
-            currentBallPosition[1] >= blocks[i].bottomLeft[1] + 20 && 
+            currentBallPosition[1] >= blocks[i].bottomLeft[1] - 20 && 
             currentBallPosition[1] <= blocks[i].topLeft[1] + 20
         ) {
-            //changeBallDirection()
+            const allBlocks = document.querySelectorAll('.block');
+            console.log(allBlocks)
+            changeBallDirection()
+
         }
     }
 }
 
 function changeBallDirection() {
     if (ballX == 2 && ballY == 2) {
-        ballX = -2
+        ballY = -2
         return
     }
     if (ballX == -2 && ballY == 2) {
