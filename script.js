@@ -133,6 +133,9 @@ function checkBallCollisions() {
         ) {
             const allBlocks = document.querySelectorAll('.block');
             console.log(allBlocks)
+            allBlocks[i].classList.remove('block')
+            blocks.splice(i,1)
+            changeBallDirection()
         }
     }
 }
