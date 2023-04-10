@@ -114,7 +114,8 @@ function checkBallCollisions() {
         currentBallPosition[1] >= 400 - 20 ||
         currentBallPosition[0] == 0
         ) {
-            changeBallDirection();
+            wallCollision();
+            //changeBallDirection();
         //ballX = -2;
     }
     /*
@@ -127,7 +128,8 @@ function checkBallCollisions() {
     }
 */
     if (currentBallPosition[1] == 0) {
-        clearInterval(timer);
+        //clearInterval(timer);
+        //wallCollision()
     }
 
     for (let i = 0; i < blocks.length; i += 1) {
@@ -139,7 +141,7 @@ function checkBallCollisions() {
         ) {
             const allBlocks = document.querySelectorAll('.block');
             console.log(allBlocks)
-            changeBallDirection()
+            //changeBallDirection()
 
         }
     }
@@ -163,7 +165,35 @@ function changeBallDirection() {
         return
     }
 
-
-
 }
 
+function wallCollision() {
+    if (ballX == 2 && ballY == 2 && currentBallPosition[0] >= 560-20) {
+        ballX = -2
+        return
+    }
+    if (ballX == 2 && ballY == 2 && currentBallPosition[1] >= 400-20) {
+        ballY = -2
+        return
+    }
+    if (ballX == -2 && ballY == 2 && currentBallPosition[0] <= 0) {
+        ballX = 2
+        return
+    } 
+    if (ballX == -2 && ballY == 2 && currentBallPosition[1] >= 400-20) {
+        ballY = -2
+        return
+    } 
+    if (ballX == -2 && ballY == -2 && currentBallPosition[0] <= 0) {
+        ballX = 2;
+        return
+    }
+    if (ballX == -2 && ballY == -2 && currentBallPosition[1] <= 0) {
+        ballY = 2;
+        return
+    }
+    if (ballX == 2 && ballY == -2) {
+        ballX = -2
+        return
+    }
+}
