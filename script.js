@@ -115,24 +115,13 @@ function checkBallCollisions() {
         currentBallPosition[0] == 0
         ) {
             wallCollision();
-            //userCollision();
-            //changeBallDirection();
-        //ballX = -2;
+
     } else {
         userCollision()
     }
-    /*
-    if (currentBallPosition[1] >= 400 - 20) {
-        ballY = -2;
-    }
 
-    if (currentBallPosition[0] == 0) {
-        ballX = 2;
-    }
-*/
     if (currentBallPosition[1] <= 0) {
-        //clearInterval(timer);
-        wallCollision()
+        clearInterval(timer);
     }
 
     for (let i = 0; i < blocks.length; i += 1) {
@@ -144,8 +133,6 @@ function checkBallCollisions() {
         ) {
             const allBlocks = document.querySelectorAll('.block');
             console.log(allBlocks)
-            //changeBallDirection()
-
         }
     }
 }
@@ -196,22 +183,9 @@ function wallCollision() {
         return
     }
     if (ballX == 2 && ballY == -2) {
-        ballY = 2
+        ballX = -2
         return
     }
-
-    if(ballX == 2 && ballY == -2){
-        //ballY = 2
-        console.log(currentPosition[0])
-        return
-
-    }
-    if(ballX == -2 && ballY == -2 && currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= (currentPosition[0] + 100) && currentBallPosition[1] <= 60){
-        ballY = 2
-        console.log('2')
-        return
-    }
-
 }
 
 function userCollision() {
