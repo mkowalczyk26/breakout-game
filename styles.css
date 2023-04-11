@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: aliceblue;
 }
 
 .main {
@@ -18,7 +19,7 @@ body {
     position: absolute;
     width: 100px;
     height: 20px;
-    background-color: red;
+    background-color: rgb(50, 88, 85);
 }
 
 .ball {
