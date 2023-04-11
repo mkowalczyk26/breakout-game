@@ -13,10 +13,6 @@ let ballX = 2;
 let ballY = 2;
 
 
-gameArea.addEventListener('click', () => {
-    console.log('123')
-})
-
 class Block {
     constructor(x, y) {
         this.topLeft = [x, y + blockHeight];
@@ -197,7 +193,6 @@ function wallCollision() {
 }
 
 function userCollision() {
-    console.log('123');
     if(ballX == 2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100 && currentBallPosition[1] <= currentPosition[1] + 20)){
         ballY = 2
         return
