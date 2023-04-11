@@ -39,7 +39,7 @@ const blocks = [
     new Block(340, 290),
     new Block(450, 290),
 ]
-console.log(blocks[0]);
+//console.log(blocks[0]);
 
 function createBlocks() {
     for (let i = 0; i < blocks.length; i += 1) {
@@ -128,7 +128,7 @@ function checkBallCollisions() {
             currentBallPosition[1] <= blocks[i].topLeft[1] + 20
         ) {
             const allBlocks = document.querySelectorAll('.block');
-            console.log(allBlocks)
+            //console.log(allBlocks)
             allBlocks[i].classList.remove('block')
             blocks.splice(i,1)
             changeBallDirection()
