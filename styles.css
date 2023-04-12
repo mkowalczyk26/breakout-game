@@ -8,6 +8,10 @@ body {
     background-color: rgb(49, 49, 49);
 }
 
+.container {
+    color: white;
+}
+
 .main {
     width: 560px;
     height: 400px;
