@@ -55,7 +55,7 @@ createBlocks();
 
 const platform = document.createElement('div');
 platform.className = 'block';
-platform.style.backgroundColor = 'blue';
+platform.style.backgroundColor = 'rgb(169, 199, 187)';
 updateUser();
 gameArea.appendChild(platform);
 
