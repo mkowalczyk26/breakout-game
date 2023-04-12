@@ -1,6 +1,10 @@
 const gameArea = document.querySelector('.main');
+const score = document.querySelector('.score');
 const blockWidth = 100;
 const blockHeight = 20;
+
+let currentScore = 0
+score.innerHTML = currentScore;
 
 const userStartPosition = [230, 20];
 let currentPosition = userStartPosition;
@@ -132,6 +136,8 @@ function checkBallCollisions() {
             allBlocks[i].classList.remove('block')
             blocks.splice(i,1)
             changeBallDirection()
+            currentScore += 1;
+            score.innerHTML = currentScore;
         }
         
     }
