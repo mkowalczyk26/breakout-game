@@ -10,6 +10,8 @@ body {
 
 .container {
     color: white;
+    backdrop-filter: none;
+    background-color: transparent;
 }
 
 .main {
@@ -34,3 +36,10 @@ body {
     background: rgb(201, 201, 201);
 }
 
+.youLostModal {
+    width: 500px;
+    height: 280px;
+    background-color: white;
+    display: flex;
+    position: absolute;
+}

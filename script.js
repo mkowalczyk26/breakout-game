@@ -120,8 +120,12 @@ function checkBallCollisions() {
         userCollision()
     }
 
-    if (currentBallPosition[1] <= 0) {
+    if (currentBallPosition[1] <= 0) {      //ball hit bottom border
         clearInterval(timer);
+        const modal = document.createElement('div');
+        modal.className = 'youLostModal';
+        document.body.appendChild(modal);
+        document.querySelector('.container').style.backdropFilter = 'blur(5px)';
     }
 
     for (let i = 0; i < blocks.length; i += 1) {
