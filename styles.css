@@ -40,6 +40,7 @@ body {
     border-radius: 5px;
     background-color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 4rem;
@@ -47,4 +48,10 @@ body {
     font-weight: bold;
     position: absolute;
     box-shadow: 5px 5px 5px rgb(133, 133, 133);
+    gap: 30px;
+}
+
+.newGameBtn {
+    padding: 5px 10px;
+    font-size: 2rem;
 }
