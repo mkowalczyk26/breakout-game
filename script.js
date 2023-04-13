@@ -136,7 +136,7 @@ function newGame() {
             document.querySelector('.container').style.filter = 'blur(3px)';
     
             newGameBtn.addEventListener('click', () => {
-                console.log(userStartPosition)
+                //console.log(userStartPosition)
                 modal.remove();
                 document.querySelector('.container').style.filter = 'none';
                 gameArea.remove()
