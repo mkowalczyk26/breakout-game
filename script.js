@@ -124,8 +124,9 @@ function checkBallCollisions() {
         clearInterval(timer);
         const modal = document.createElement('div');
         modal.className = 'youLostModal';
+        modal.innerText = 'You Lost'
         document.body.appendChild(modal);
-        document.querySelector('.container').style.backdropFilter = 'blur(5px)';
+        document.querySelector('.container').style.filter = 'blur(3px)';
     }
 
     for (let i = 0; i < blocks.length; i += 1) {
