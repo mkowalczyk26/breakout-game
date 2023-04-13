@@ -5,7 +5,7 @@ const blockHeight = 20;
 let currentScore = 0
 score.innerHTML = currentScore;
 
-
+let counter = 3;
 
 let timer;
 let ballX = 2;
@@ -146,7 +146,8 @@ function newGame() {
                 document.querySelector('.container').appendChild(main);
                 currentScore = 0;
                 score.innerHTML = currentScore;
-                newGame();
+                countdown = setInterval(counting, 1000);
+                //newGame();
             })
     
         }
@@ -173,7 +174,25 @@ function newGame() {
         }
     
     }
-    
+    function counting() {
+        if (counter > 0) {
+            if(document.querySelector('.counter'))
+                document.querySelector('.counter').remove()
+
+            //console.log(counter);
+            const modal = document.createElement('div');
+            modal.className = 'counter';
+            modal.innerText = counter;
+            document.body.appendChild(modal);
+            counter -= 1;
+        }else if (counter == 0) {
+            document.querySelector('.counter').remove();
+            newGame();
+            clearInterval(countdown);
+            counter = 3;
+        }
+    }
+
     function changeBallDirection() {
         if (ballX == 2 && ballY == 2) {
             ballY = -2
