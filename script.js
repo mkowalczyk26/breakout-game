@@ -7,6 +7,8 @@ const blockHeight = 20;
 let currentScore = 0
 score.innerHTML = currentScore;
 
+let game = false;
+
 let counter = 3;
 
 let timer;
@@ -21,6 +23,7 @@ speedBtn.innerText = '1X';
 
 
 function newGame() {
+    game = true;
     const gameArea = document.querySelector('.main');
 
     const userStartPosition = [230, 20];
@@ -121,18 +124,19 @@ function newGame() {
     timer = setInterval(moveBall, gameSpeed);
     
     speedBtn.addEventListener('click', () => {
-        if(gameSpeed == 20) {
-            clearInterval(timer)
-            gameSpeed = 10;
-            speedBtn.innerText = '2X';
-            timer = setInterval(moveBall, gameSpeed);
-        } else {
-            clearInterval(timer)
-            gameSpeed = 20;
-            speedBtn.innerText = '1X';
-            timer = setInterval(moveBall, gameSpeed)
+        if (game) {
+            if(gameSpeed == 20) {
+                clearInterval(timer)
+                gameSpeed = 10;
+                speedBtn.innerText = '2X';
+                timer = setInterval(moveBall, gameSpeed);
+            } else {
+                clearInterval(timer)
+                gameSpeed = 20;
+                speedBtn.innerText = '1X';
+                timer = setInterval(moveBall, gameSpeed)
+            }
         }
-    
     })
     
 
@@ -150,6 +154,7 @@ function newGame() {
     
         if (currentBallPosition[1] <= 0) {      //ball hit bottom border
             clearInterval(timer);
+            game = false;
             const modal = document.createElement('div');
             modal.className = 'youLostModal';
             modal.innerText = 'You Lost'
@@ -196,6 +201,7 @@ function newGame() {
         }
         if (blocks.length == 0) {
             clearInterval(timer);
+            
         }
     
     }
