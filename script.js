@@ -1,4 +1,6 @@
 const score = document.querySelector('.score');
+const speedBtn = document.querySelector('.speed-btn');
+
 const blockWidth = 100;
 const blockHeight = 20;
 
@@ -13,6 +15,9 @@ let ballY = 2;
 
 let startingSpeed = 20;
 gameSpeed = startingSpeed;
+
+speedBtn.innerText = '1X';
+
 
 
 function newGame() {
@@ -115,6 +120,22 @@ function newGame() {
     
     timer = setInterval(moveBall, gameSpeed);
     
+    speedBtn.addEventListener('click', () => {
+        if(gameSpeed == 20) {
+            clearInterval(timer)
+            gameSpeed = 10;
+            speedBtn.innerText = '2X';
+            timer = setInterval(moveBall, gameSpeed);
+        } else {
+            clearInterval(timer)
+            gameSpeed = 20;
+            speedBtn.innerText = '1X';
+            timer = setInterval(moveBall, gameSpeed)
+        }
+    
+    })
+    
+
     function checkBallCollisions() {
         if (
             currentBallPosition[0] >= 560 - 20 ||
