@@ -124,8 +124,6 @@ function newGame() {
     timer = setInterval(moveBall, gameSpeed);
     
     speedBtn.addEventListener('click', speedFunction = () => {
-        console.log(1);
-        console.log(gameSpeed)
         if (game) {
             if(gameSpeed == 20) {
                 clearInterval(timer)
