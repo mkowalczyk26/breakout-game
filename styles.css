@@ -62,3 +62,6 @@ body {
     color: white;
     position: absolute;
 }
+.wrapper {
+    display: flex;
+}

@@ -11,6 +11,10 @@ let timer;
 let ballX = 2;
 let ballY = 2;
 
+let startingSpeed = 20;
+gameSpeed = startingSpeed;
+
+
 function newGame() {
     const gameArea = document.querySelector('.main');
 
@@ -109,7 +113,7 @@ function newGame() {
         updateBall();
     }
     
-    timer = setInterval(moveBall, 15);
+    timer = setInterval(moveBall, gameSpeed);
     
     function checkBallCollisions() {
         if (
