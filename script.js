@@ -123,7 +123,9 @@ function newGame() {
     
     timer = setInterval(moveBall, gameSpeed);
     
-    speedBtn.addEventListener('click', () => {
+    speedBtn.addEventListener('click', speedFunction = () => {
+        console.log(1);
+        console.log(gameSpeed)
         if (game) {
             if(gameSpeed == 20) {
                 clearInterval(timer)
@@ -218,8 +220,10 @@ function newGame() {
             counter -= 1;
         }else if (counter == 0) {
             document.querySelector('.counter').remove();
+            speedBtn.removeEventListener('click', speedFunction);
             newGame();
             clearInterval(countdown);
+            game = true
             counter = 3;
         }
     }
