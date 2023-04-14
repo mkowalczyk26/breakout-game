@@ -62,6 +62,19 @@ body {
     color: white;
     position: absolute;
 }
+
 .wrapper {
     display: flex;
+    justify-content: space-around;
+}
+
+.speed-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.speed-btn {
+    text-align: center;
+    padding: 5px 10px;
 }
