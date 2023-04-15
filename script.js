@@ -1,5 +1,10 @@
 const score = document.querySelector('.score');
 const speedBtn = document.querySelector('.speed-btn');
+const lvl = document.querySelector('.lvl');
+
+
+let currentLvl = 1;
+lvl.innerText = currentLvl;
 
 const blockWidth = 100;
 const blockHeight = 20;
@@ -37,6 +42,7 @@ function generateColors() {
 generateColors();
 
 function newGame() {    
+    lvl.innerText = currentLvl;
     game = true;
     const gameArea = document.querySelector('.main');
     document.querySelector('.container').style.filter = 'none';
@@ -196,6 +202,7 @@ function newGame() {
                 currentScore = 0;
                 score.innerHTML = currentScore;
                 generateColors();
+                currentLvl = 1;
                 document.querySelector('.container').style.filter = 'blur(3px)';
                 countdown = setInterval(counting, 1000);
             })
@@ -240,6 +247,7 @@ function newGame() {
                 document.querySelector('.container').appendChild(main);
                 score.innerHTML = currentScore;
                 generateColors();
+                currentLvl += 1;
                 document.querySelector('.container').style.filter = 'blur(3px)';
                 countdown = setInterval(counting, 1000);
             })
