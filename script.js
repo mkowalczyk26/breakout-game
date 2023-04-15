@@ -20,9 +20,12 @@ gameSpeed = startingSpeed;
 
 speedBtn.innerText = '1X';
 
+let bodyBg;
+let blocksBg;
+//document.body.style.backgroundColor = 'rgb(' + rgb + ')';
 
 
-function newGame() {
+function newGame() {    
     game = true;
     const gameArea = document.querySelector('.main');
 
@@ -31,6 +34,16 @@ function newGame() {
 
     const ballStartPosition = [270, 60];
     let currentBallPosition = ballStartPosition;
+
+    function generateColors() {
+        bodyBg = [randomInteger(150), randomInteger(150), randomInteger(150)];
+        blocksBg = [bodyBg[0]/2, bodyBg[1]/2, bodyBg[2]/2];
+        console.log(bodyBg) 
+    }
+    generateColors();
+
+    document.body.style.backgroundColor = 'rgb(' + bodyBg + ')';
+
 
     class Block {
         constructor(x, y) {
@@ -60,12 +73,18 @@ function newGame() {
     ]
     //console.log(blocks[0]);
     
+    function randomInteger(x) {
+        return Math.floor(Math.random()*(x + 1));
+    }
+
+
     function createBlocks() {
         for (let i = 0; i < blocks.length; i += 1) {
             const block = document.createElement('div');
             block.className = 'block';
             block.style.left = blocks[i].bottomLeft[0] + 'px';
             block.style.bottom = blocks[i].bottomLeft[1] + 'px';
+            block.style.backgroundColor = 'rgb(' + blocksBg + ')';
             gameArea.appendChild(block);
         }
     }
@@ -74,7 +93,7 @@ function newGame() {
     
     const platform = document.createElement('div');
     platform.className = 'block';
-    platform.style.backgroundColor = 'rgb(169, 199, 187)';
+    platform.style.backgroundColor = 'rgb(' + blocksBg + ')';
     updateUser();
     gameArea.appendChild(platform);
     
