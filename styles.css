@@ -59,6 +59,7 @@ body {
 
 .counter {
     font-size: 20rem;
+    font-weight: bold;
     font-family: sans-serif;
     color: white;
     position: absolute;

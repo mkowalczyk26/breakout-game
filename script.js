@@ -2,7 +2,6 @@ const score = document.querySelector('.score');
 const speedBtn = document.querySelector('.speed-btn');
 const lvl = document.querySelector('.lvl');
 
-
 let currentLvl = 1;
 lvl.innerText = currentLvl;
 
@@ -46,7 +45,6 @@ function newGame() {
     game = true;
     const gameArea = document.querySelector('.main');
     document.querySelector('.container').style.filter = 'none';
-
 
     const userStartPosition = [230, 20];
     let currentPosition = userStartPosition;
@@ -104,7 +102,6 @@ function newGame() {
         platform.style.left = currentPosition[0] + 'px';
         platform.style.bottom = currentPosition[1] + 'px';
     }
-    
     
     function movePlatrom(e) {
         switch(e.key) {
