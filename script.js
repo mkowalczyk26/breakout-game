@@ -203,6 +203,7 @@ function newGame() {
                 score.innerHTML = currentScore;
                 generateColors();
                 currentLvl = 1;
+                lvl.innerText = currentLvl;
                 document.querySelector('.container').style.filter = 'blur(3px)';
                 countdown = setInterval(counting, 1000);
             })
@@ -248,10 +249,10 @@ function newGame() {
                 score.innerHTML = currentScore;
                 generateColors();
                 currentLvl += 1;
+                lvl.innerText = currentLvl;
                 document.querySelector('.container').style.filter = 'blur(3px)';
                 countdown = setInterval(counting, 1000);
             })
-
         }
     
     }
@@ -269,7 +270,7 @@ function newGame() {
             speedBtn.removeEventListener('click', speedFunction);
             newGame();
             clearInterval(countdown);
-            game = true
+            game = true;
             counter = 3;
         }
     }
