@@ -314,13 +314,19 @@ function newGame() {
     }
     
     function userCollision() {
-        if(ballX == 2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100 && currentBallPosition[1] <= currentPosition[1] + 20)){
-            ballY = 2
-            return
+        if(ballX == 2 && ballY == -2 &&
+            (currentBallPosition[0] >= currentPosition[0] &&
+            currentBallPosition[0] <= currentPosition[0] + 100 &&
+            currentBallPosition[1] <= currentPosition[1] + 20)){
+                ballY = 2
+                return
         }
-        if(ballX == -2 && ballY == -2 && (currentBallPosition[0] >= currentPosition[0] && currentBallPosition[0] <= currentPosition[0] + 100 && currentBallPosition[1] <= currentPosition[1] + 20)){
-            ballY = 2
-            return
+        if(ballX == -2 && ballY == -2 && 
+            (currentBallPosition[0] >= currentPosition[0] && 
+            currentBallPosition[0] <= currentPosition[0] + 100 && 
+            currentBallPosition[1] <= currentPosition[1] + 20)){
+                ballY = 2
+                return
         }
     }
 }
