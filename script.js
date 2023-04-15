@@ -127,9 +127,14 @@ function newGame() {
         if (game) {
             if(gameSpeed == 20) {
                 clearInterval(timer)
-                gameSpeed = 10;
+                gameSpeed = 15;
                 speedBtn.innerText = '2X';
                 timer = setInterval(moveBall, gameSpeed);
+            } else if (gameSpeed == 15){
+                clearInterval(timer)
+                gameSpeed = 10;
+                speedBtn.innerText = '3X';
+                timer = setInterval(moveBall, gameSpeed)
             } else {
                 clearInterval(timer)
                 gameSpeed = 20;
