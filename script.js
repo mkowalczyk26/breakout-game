@@ -22,7 +22,6 @@ speedBtn.innerText = '1X';
 
 let bodyBg;
 let blocksBg;
-//document.body.style.backgroundColor = 'rgb(' + rgb + ')';
     
 function randomInteger(x) {
     return Math.floor(Math.random()*(x + 1));
@@ -31,7 +30,6 @@ function randomInteger(x) {
 function generateColors() {
     bodyBg = [randomInteger(150), randomInteger(150), randomInteger(150)];
     blocksBg = [bodyBg[0]/2, bodyBg[1]/2, bodyBg[2]/2];
-    //console.log(bodyBg);
     document.body.style.backgroundColor = 'rgb(' + bodyBg + ')';
  
 }
@@ -47,8 +45,6 @@ function newGame() {
 
     const ballStartPosition = [270, 60];
     let currentBallPosition = ballStartPosition;
-
-
 
     class Block {
         constructor(x, y) {
@@ -76,9 +72,6 @@ function newGame() {
         new Block(340, 290),
         new Block(450, 290),
     ]
-    //console.log(blocks[0]);
-
-
 
     function createBlocks() {
         for (let i = 0; i < blocks.length; i += 1) {
@@ -192,11 +185,9 @@ function newGame() {
             document.querySelector('.container').style.filter = 'blur(3px)';
     
             newGameBtn.addEventListener('click', () => {
-                //console.log(userStartPosition)
                 modal.remove();
                 document.querySelector('.container').style.filter = 'none';
                 gameArea.remove()
-                //resetValues();
                 const main = document.createElement('div')
                 main.className = 'main';
                 document.querySelector('.container').appendChild(main);
@@ -204,7 +195,6 @@ function newGame() {
                 score.innerHTML = currentScore;
                 generateColors();
                 countdown = setInterval(counting, 1000);
-                //newGame();
             })
     
         }
@@ -217,7 +207,6 @@ function newGame() {
                 currentBallPosition[1] <= blocks[i].topLeft[1] + 20
             ) {
                 const allBlocks = document.querySelectorAll('.block');
-                //console.log(allBlocks)
                 allBlocks[i].classList.remove('block')
                 blocks.splice(i,1)
                 changeBallDirection()
@@ -228,8 +217,6 @@ function newGame() {
         }
         if (blocks.length == 0) {
             clearInterval(timer);
-            
-
             game = false;
             const modal = document.createElement('div');
             modal.className = 'modal';
@@ -242,19 +229,15 @@ function newGame() {
             document.querySelector('.container').style.filter = 'blur(3px)';
     
             newGameBtn.addEventListener('click', () => {
-                //console.log(userStartPosition)
                 modal.remove();
                 document.querySelector('.container').style.filter = 'none';
                 gameArea.remove()
-                //resetValues();
                 const main = document.createElement('div')
                 main.className = 'main';
                 document.querySelector('.container').appendChild(main);
-                
                 score.innerHTML = currentScore;
                 generateColors();
                 countdown = setInterval(counting, 1000);
-                //newGame();
             })
 
         }
@@ -264,7 +247,6 @@ function newGame() {
         if (counter > 0) {
             if(document.querySelector('.counter'))
                 document.querySelector('.counter').remove()
-            //console.log(counter);
             const modal = document.createElement('div');
             modal.className = 'counter';
             modal.innerText = counter;
