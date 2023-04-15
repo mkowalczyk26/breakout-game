@@ -23,7 +23,20 @@ speedBtn.innerText = '1X';
 let bodyBg;
 let blocksBg;
 //document.body.style.backgroundColor = 'rgb(' + rgb + ')';
+    
+function randomInteger(x) {
+    return Math.floor(Math.random()*(x + 1));
+}
 
+function generateColors() {
+    bodyBg = [randomInteger(150), randomInteger(150), randomInteger(150)];
+    blocksBg = [bodyBg[0]/2, bodyBg[1]/2, bodyBg[2]/2];
+    //console.log(bodyBg);
+    document.body.style.backgroundColor = 'rgb(' + bodyBg + ')';
+ 
+}
+
+generateColors();
 
 function newGame() {    
     game = true;
@@ -35,14 +48,6 @@ function newGame() {
     const ballStartPosition = [270, 60];
     let currentBallPosition = ballStartPosition;
 
-    function generateColors() {
-        bodyBg = [randomInteger(150), randomInteger(150), randomInteger(150)];
-        blocksBg = [bodyBg[0]/2, bodyBg[1]/2, bodyBg[2]/2];
-        console.log(bodyBg) 
-    }
-    generateColors();
-
-    document.body.style.backgroundColor = 'rgb(' + bodyBg + ')';
 
 
     class Block {
@@ -72,10 +77,7 @@ function newGame() {
         new Block(450, 290),
     ]
     //console.log(blocks[0]);
-    
-    function randomInteger(x) {
-        return Math.floor(Math.random()*(x + 1));
-    }
+
 
 
     function createBlocks() {
@@ -200,6 +202,7 @@ function newGame() {
                 document.querySelector('.container').appendChild(main);
                 currentScore = 0;
                 score.innerHTML = currentScore;
+                generateColors();
                 countdown = setInterval(counting, 1000);
                 //newGame();
             })
@@ -249,6 +252,7 @@ function newGame() {
                 document.querySelector('.container').appendChild(main);
                 
                 score.innerHTML = currentScore;
+                generateColors();
                 countdown = setInterval(counting, 1000);
                 //newGame();
             })
@@ -260,7 +264,6 @@ function newGame() {
         if (counter > 0) {
             if(document.querySelector('.counter'))
                 document.querySelector('.counter').remove()
-
             //console.log(counter);
             const modal = document.createElement('div');
             modal.className = 'counter';
