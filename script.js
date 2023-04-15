@@ -39,6 +39,8 @@ generateColors();
 function newGame() {    
     game = true;
     const gameArea = document.querySelector('.main');
+    document.querySelector('.container').style.filter = 'none';
+
 
     const userStartPosition = [230, 20];
     let currentPosition = userStartPosition;
@@ -194,6 +196,7 @@ function newGame() {
                 currentScore = 0;
                 score.innerHTML = currentScore;
                 generateColors();
+                document.querySelector('.container').style.filter = 'blur(3px)';
                 countdown = setInterval(counting, 1000);
             })
     
@@ -237,6 +240,7 @@ function newGame() {
                 document.querySelector('.container').appendChild(main);
                 score.innerHTML = currentScore;
                 generateColors();
+                document.querySelector('.container').style.filter = 'blur(3px)';
                 countdown = setInterval(counting, 1000);
             })
 
