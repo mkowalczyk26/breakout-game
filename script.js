@@ -156,7 +156,7 @@ function newGame() {
             clearInterval(timer);
             game = false;
             const modal = document.createElement('div');
-            modal.className = 'youLostModal';
+            modal.className = 'modal';
             modal.innerText = 'You Lost'
             modal.appendChild(document.createElement('button'));
             modal.querySelector('button').className = 'newGameBtn';
@@ -202,6 +202,33 @@ function newGame() {
         if (blocks.length == 0) {
             clearInterval(timer);
             
+
+            game = false;
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerText = 'You Win'
+            modal.appendChild(document.createElement('button'));
+            modal.querySelector('button').className = 'newGameBtn';
+            const newGameBtn = modal.querySelector('.newGameBtn');
+            newGameBtn.innerText = 'Next Level';
+            document.body.appendChild(modal);
+            document.querySelector('.container').style.filter = 'blur(3px)';
+    
+            newGameBtn.addEventListener('click', () => {
+                //console.log(userStartPosition)
+                modal.remove();
+                document.querySelector('.container').style.filter = 'none';
+                gameArea.remove()
+                //resetValues();
+                const main = document.createElement('div')
+                main.className = 'main';
+                document.querySelector('.container').appendChild(main);
+                
+                score.innerHTML = currentScore;
+                countdown = setInterval(counting, 1000);
+                //newGame();
+            })
+
         }
     
     }
